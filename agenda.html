@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign in — Jimmi Store</title>
+  <link rel="preconnect" href="https://images.unsplash.com">
+  <link rel="stylesheet" href="assets/css/base.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-art">
+      <img src="https://images.unsplash.com/photo-1693400083666-1175e90da1eb?auto=format&fit=crop&w=900&q=80" alt="Fresh market">
+      <div class="auth-art-content">
+        <h1>Welcome to Jimmi Store</h1>
+        <p>Fresh groceries from local farms, delivered to your door in 60 minutes.</p>
+        <div class="auth-features">
+          <div class="auth-feature">
+            <span class="feature-icon">✓</span>
+            <span>Free delivery above ₹99</span>
+          </div>
+          <div class=w"auth-feature">
+            <span class="feature-icon">✓</span>
+            <span>100% fresh products</span>
+          </div>
+          <div class="auth-feature">
+            <span class="feature-icon">✓</span>
+            <span>Easy returns within 24h</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="auth-form">
+      <div class="auth-card">
+        <a class="brand" href="index.html">
+          <img src="https://images.unsplash.com/photo-1767032916116-2460bbd4a27d?auto=format&fit=crop&w=120&q=70" alt="Jimmi Store basket">
+          <b>Jimmi Store</b>
+        </a>
+
+        <!-- Step indicators -->
+        <div class="step-indicators">
+          <div class="step-dot active" data-step="1">1</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="2">2</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="3">3</div>
+          <div class="step-line"></div>
+          <div class="step-dot" data-step="4">4</div>
+        </div>
+
+        <!-- Step 1: Phone Number -->
+        <div id="auth-step1" class="auth-step active">
+          <h2>Sign in</h2>
+          <p class="sub">Enter your mobile number to get started.</p>
+          
+          <label for="auth-phone">Mobile number</label>
+          <div class="input-with-prefix">
+            <span class="input-prefix">+91</span>
+            <input id="auth-phone" type="tel" inputmode="numeric" placeholder="98765 43210" maxlength="10">
+          </div>
+          
+          <button class="btn" id="auth-send" type="button">
+            <span>Continue</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          
+          <div class="auth-alt">Already have an account? <a href="#" id="show-signin">Sign in</a></div>
+        </div>
+
+        <!-- Step 2: OTP Verification -->
+        <div id="auth-step2" class="auth-step">
+          <h2>Verify OTP</h2>
+          <p class="sub">Enter the code sent to your number.</p>
+          
+          <div class="otp-demo-banner">
+            <span class="otp-icon">📱</span>
+            <div class="otp-demo-text">
+              <span class="otp-label">Demo OTP:</span>
+              <span class="otp-code" id="otp-display">----</span>
+            </div>
+            <button class="otp-copy" id="copy-otp" title="Copy OTP">📋</button>
+          </div>
+          
+          <label for="auth-otp">One-time password</label>
+          <div class="otp-input-group">
+            <input type="text" class="otp-input" maxlength="1" data-otp="0" inputmode="numeric">
+            <input type="text" class="otp-input" maxlength="1" data-otp="1" inputmode="numeric">
+            <input type="text" class="otp-input" maxlength="1" data-otp="2" inputmode="numeric">
+            <input type="text" class="otp-input" maxlength="1" data-otp="3" inputmode="numeric">
+          </div>
+          
+          <button class="btn" id="auth-verify" type="button">
+            <span>Verify & Continue</span>
+            <span class="btn-arrow">→</span>
+          </button>
+          
+          <div class="auth-alt">
+            <span>Didn't receive code?</span>
+            <a href="#" id="resend-otp">Resend OTP</a>
+            <span class="otp-timer" id="otp-timer">30s</span>
+          </div>
+        </div>
+
+        <!-- Step 3: Profile Details -->
+        <div id="auth-step3" class="auth-step">
+          <h2>Complete Profile</h2>
+          <p class="sub">Tell us a bit about yourself for delivery.</p>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="auth-name">Full Name *</label>
+              <input id="auth-name" type="text" placeholder="Jagan" required>
+            </div>
+            <div class="form-group form-group-small">
+              <label for="auth-age">Age *</label>
+              <input id="auth-age" type="number" placeholder="25" min="13" max="120" required>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <label for="auth-email">Email <span class="optional">(optional)</span></label>
+            <input id="auth-email" type="email" placeholder="jagan@example.com">
+          </div>
+          
+          <div class="form-group">
+            <label for="auth-address">Delivery Address *</label>
+            <textarea id="auth-address" placeholder="House no, Street, Area, City" rows="2" required></textarea>
+          </div>
+          
+          <div class="form-row">
+            <div class="form-group">
+              <label for="auth-pincode">Pincode *</label>
+              <input id="auth-pincode" type="text" inputmode="numeric" placeholder="600001" maxlength="6" required>
+            </div>
+            <div class="form-group">
+              <label for="auth-landmark">Landmark</label>
+              <input id="auth-landmark" type="text" placeholder="Near temple">
+            </div>
+          </div>
+          
+          <button class="btn" id="auth-complete" type="button">
+            <span>Continue</span>
+            <span class="btn-arrow">→</span>
+          </button>
+        </div>
+
+        <!-- Step 4: Profile Photo -->
+        <div id="auth-step4" class="auth-step">
+          <h2>Add your photo</h2>
+          <p class="sub">This photo will appear at the top of Jimmi Store.</p>
+          
+          <div class="photo-upload-area" id="photo-drop">
+            <img id="photo-preview" class="photo-preview hide" alt="Preview">
+            <div id="photo-placeholder" class="photo-placeholder">
+              <span class="photo-icon">📷</span>
+              <span>Click to upload or drag & drop</span>
+              <small>JPG, PNG up to 5MB</small>
+            </div>
+            <input type="file" id="auth-photo" accept="image/*" hidden>
+          </div>
+          <p class="photo-hint">Your photo will be shown in the header after login.</p>
+          
+          <button class="btn" id="auth-photo-save" type="button">
+            <span>Save & Enter Store</span>
+            <span class="btn-arrow">✓</span>
+          </button>
+          <button class="btn btn--ghost" id="auth-photo-skip" type="button" style="margin-top:10px;background:#fff;color:var(--green-700);border:1.5px solid var(--green)">Skip for now</button>
+        </div>
+
+        <div class="toast" id="auth-status"></div>
+        <div style="text-align:center;margin-top:18px;font-size:.78rem;color:var(--muted)">Website is created by <b style="color:var(--green-700)">Jagan Yadav</b></div>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/auth.js"></script>
+</body>
+</html>
